@@ -1,6 +1,4 @@
 from app.utils.db_utils import log_audit_event, read_json_db, write_json_db
-from langchain_openai import ChatOpenAI
-from langchain.prompts import PromptTemplate
 import json
 
 def generate_compliance_report(validation_results: list, regulation_context: str) -> str:

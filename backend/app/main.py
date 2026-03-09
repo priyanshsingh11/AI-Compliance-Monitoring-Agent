@@ -55,6 +55,22 @@ def get_calendar():
     db = read_json_db()
     return db.get("calendar", [])
 
+@app.get("/dashboard-stats")
+def get_dashboard_stats():
+    from app.utils.db_utils import read_json_db
+    db = read_json_db()
+    
+    calendar = db.get("calendar", [])
+    validations = db.get("validations", [])
+    report = db.get("report", {})
+    
+    return {
+        "regulations": len(calendar),
+        "violations": len(validations),
+        "report_status": report.get("status", "Pending"),
+        "submission": "Success" if report.get("status") == "Ready for Submission" else "Pending"
+    }
+
 @app.get("/validation-results")
 def get_validation_results():
     from app.utils.db_utils import read_json_db

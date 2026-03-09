@@ -1,8 +1,30 @@
+"use client";
 import { DashboardCard } from '@/components/DashboardCard';
 import { RunWorkflowButton } from '@/components/RunWorkflowButton';
 import { Activity, ShieldAlert, FileText, CheckCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 
 export default function Dashboard() {
+    const [stats, setStats] = useState({
+        regulations: 0,
+        violations: 0,
+        report_status: "Pending",
+        submission: "Pending"
+    });
+
+    useEffect(() => {
+        const fetchStats = async () => {
+            try {
+                const res = await fetch('http://localhost:8000/dashboard-stats');
+                const data = await res.json();
+                setStats(data);
+            } catch (error) {
+                console.error("Failed to fetch dashboard stats:", error);
+            }
+        };
+        fetchStats();
+    }, []);
+
     return (
         <div className="max-w-6xl mx-auto space-y-8 animate-in fade-in duration-500">
             <div className="flex justify-between items-center">
@@ -16,26 +38,26 @@ export default function Dashboard() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <DashboardCard
                     title="Regulations Detected"
-                    value="3"
+                    value={stats.regulations.toString()}
                     description="Active rules imported"
                     icon={<Activity className="w-5 h-5 text-blue-500" />}
                 />
                 <DashboardCard
                     title="Violations Found"
-                    value="2"
+                    value={stats.violations.toString()}
                     description="Awaiting review"
                     icon={<ShieldAlert className="w-5 h-5 text-red-500" />}
                 />
                 <DashboardCard
                     title="Report Status"
-                    value="Pending"
+                    value={stats.report_status}
                     description="Drafting in progress"
                     icon={<FileText className="w-5 h-5 text-amber-500" />}
                 />
                 <DashboardCard
                     title="Submission"
-                    value="Success"
-                    description="Last sync 2 hrs ago"
+                    value={stats.submission}
+                    description="Last sync"
                     icon={<CheckCircle className="w-5 h-5 text-emerald-500" />}
                 />
             </div>

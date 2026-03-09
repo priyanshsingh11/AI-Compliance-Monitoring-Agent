@@ -20,11 +20,34 @@ class ComplianceRequest(BaseModel):
 def read_root():
     return {"status": "AI Compliance API is running"}
 
+from fastapi import UploadFile, File
+import os
+import shutil
+
 @app.post("/run-compliance-check")
 async def run_compliance_check(req: ComplianceRequest, background_tasks: BackgroundTasks):
     from app.agents.compliance_agent import run_agent_workflow
     background_tasks.add_task(run_agent_workflow, req.source_text)
     return {"status": "Processing initiated", "message": "The AI Agent has started workflow."}
+
+@app.post("/upload-dataset")
+async def upload_dataset(background_tasks: BackgroundTasks, file: UploadFile = File(...)):
+    # Save the uploaded file to the app/data directory, overwriting the old one
+    file_path = os.path.join(os.path.dirname(__file__), "data", file.filename)
+    
+    # Optional: Backup the old file before overwriting
+    if os.path.exists(file_path):
+        backup_path = f"{file_path}.backup"
+        shutil.copy2(file_path, backup_path)
+        
+    with open(file_path, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+        
+    # Automatically trigger the compliance agent workflow
+    from app.agents.compliance_agent import run_agent_workflow
+    background_tasks.add_task(run_agent_workflow, f"New data uploaded: {file.filename}")
+    
+    return {"status": "Success", "message": f"{file.filename} uploaded and compliance check triggered."}
 
 @app.get("/regulatory-calendar")
 def get_calendar():

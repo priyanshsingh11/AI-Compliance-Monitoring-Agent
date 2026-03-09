@@ -24,10 +24,11 @@ def run_agent_workflow(source_text: str):
         calendar_result = create_regulatory_calendar(monitor_result)
         
         # Step 3: Data Collection
-        df = load_data("transactions.csv")
+        df_txns = load_data("transactions.csv")
+        df_kyc = load_data("kyc_records.csv")
         
         # Step 4: Validation Engine
-        validation_results = run_validation_rules(df, monitor_result)
+        validation_results = run_validation_rules({"transactions": df_txns, "kyc": df_kyc}, monitor_result)
         
         # Step 5: Report Generation
         report = generate_compliance_report(validation_results, monitor_result)

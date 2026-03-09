@@ -1,0 +1,51 @@
+from fastapi import FastAPI, BackgroundTasks
+from pydantic import BaseModel
+from typing import Dict, Any
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI(title="AI Compliance Monitoring API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+class ComplianceRequest(BaseModel):
+    source_text: str
+
+@app.get("/")
+def read_root():
+    return {"status": "AI Compliance API is running"}
+
+@app.post("/run-compliance-check")
+async def run_compliance_check(req: ComplianceRequest, background_tasks: BackgroundTasks):
+    from app.agents.compliance_agent import run_agent_workflow
+    background_tasks.add_task(run_agent_workflow, req.source_text)
+    return {"status": "Processing initiated", "message": "The AI Agent has started workflow."}
+
+@app.get("/regulatory-calendar")
+def get_calendar():
+    from app.utils.db_utils import read_json_db
+    db = read_json_db()
+    return db.get("calendar", [])
+
+@app.get("/validation-results")
+def get_validation_results():
+    from app.utils.db_utils import read_json_db
+    db = read_json_db()
+    return db.get("validations", [])
+
+@app.get("/report")
+def get_report():
+    from app.utils.db_utils import read_json_db
+    db = read_json_db()
+    return db.get("report", {})
+
+@app.get("/audit-log")
+def get_audit_log():
+    from app.utils.db_utils import read_json_db
+    db = read_json_db()
+    return db.get("audit_logs", [])

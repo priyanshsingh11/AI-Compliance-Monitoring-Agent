@@ -128,11 +128,6 @@ htmlcov/
 
 # ------------------------------
 
-*.csv
-*.parquet
-
-# ------------------------------
-
 # Misc
 
 # ------------------------------
@@ -140,5 +135,8 @@ htmlcov/
 *.bak
 *.cache
 
-
 AI_Compliance_Agent_Design_Document.md
+
+# Database & temporary logs
+backend/app/data/db.json
+backend/app/data/*.json

@@ -322,7 +322,14 @@ Submit details for TXN-002 and TXN-005.
 ===================================================
 ```
 
-## 15. Audit Logging System
+## 15. Data Auto-Fetch and Backups
+
+The system now supports an **Auto-Fetch and Trigger** mechanism:
+1. When a user or external service uploads a new dataset (like `transactions.csv` or `kyc_records.csv`) via the `/upload-dataset` API endpoint, the system automatically writes it to the `backend/app/data` folder.
+2. The old dataset is immediately **backed up** automatically by appending `.backup` to the filename (e.g., `transactions.csv.backup`). This ensures that if the new data is corrupted, the previous state can be easily restored manually.
+3. As soon as the new data is saved, the AI Orchestrator automatically triggers the validation workflow in the background.
+
+## 16. Audit Logging System
 Whenever a LangChain `@tool` is triggered, an audit hook extracts the `agent_action`, `tool_name`, `input_args`, and `timestamp`, appending it strictly to `audit_logs.json`. The Next.js frontend subsequently queries this log to provide users with a step-by-step verifiable trace of system actions, acting as definitive proof of compliance.
 
 ## 16. Error Handling
@@ -355,6 +362,14 @@ uvicorn app.main:app --reload --port 8000
 cd frontend
 npm install
 npm run dev
+```
+
+**Build Next.js Frontend for Production:**
+If you want to create an optimized production build of the frontend rather than running the dev server:
+```bash
+cd frontend
+npm run build
+npm run start
 ```
 
 ## 19. Demo Walkthrough

@@ -1,4 +1,4 @@
-# AI Compliance Monitoring Agent - Technical Design Document
+# AI Compliance Monitoring Agent - Technical Design
 
 ## 1. Project Overview
 The AI Compliance Monitoring Agent is an intelligent, automated system designed to streamline the lifecycle of regulatory compliance for organizations such as financial services or healthcare providers. The system automatically detects new regulatory updates from diverse sources, extracts reporting obligations, and orchestrates the end-to-end compliance workflow. This includes generating regulatory calendars, collecting necessary internal data, validating it against compliance constraints, generating reports, simulating submissions, and maintaining a robust audit trail. By automating these processes, the system reduces manual labor, minimizes the risk of human error, and ensures continuous regulatory adherence.

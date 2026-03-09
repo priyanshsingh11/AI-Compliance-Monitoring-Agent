@@ -1,0 +1,141 @@
+# ------------------------------
+
+# Python
+
+# ------------------------------
+
+**pycache**/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+*.pyo
+*.pyc
+
+# Python virtual environments
+
+venv/
+env/
+ENV/
+.venv/
+
+# Python environment files
+
+.env
+.env.*
+
+# Python packaging
+
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs
+
+*.log
+
+# SQLite databases
+
+*.db
+*.sqlite3
+
+# ------------------------------
+
+# FastAPI / Backend Outputs
+
+# ------------------------------
+
+outputs/
+reports/
+audit_logs/
+
+# Temporary files
+
+*.tmp
+*.temp
+
+# Jupyter notebooks
+
+.ipynb_checkpoints
+
+# ------------------------------
+
+# Node / Next.js
+
+# ------------------------------
+
+node_modules/
+.next/
+out/
+dist/
+
+# npm / yarn logs
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# lock files (optional)
+
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# ------------------------------
+
+# Next.js environment files
+
+# ------------------------------
+
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ------------------------------
+
+# OS files
+
+# ------------------------------
+
+.DS_Store
+Thumbs.db
+
+# ------------------------------
+
+# IDE files
+
+# ------------------------------
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ------------------------------
+
+# Coverage reports
+
+# ------------------------------
+
+coverage/
+htmlcov/
+
+# ------------------------------
+
+# Dataset files (optional)
+
+# ------------------------------
+
+*.csv
+*.parquet
+
+# ------------------------------
+
+# Misc
+
+# ------------------------------
+
+*.bak
+*.cache

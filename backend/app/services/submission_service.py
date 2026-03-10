@@ -1,10 +1,16 @@
 from app.utils.db_utils import log_audit_event, read_json_db, write_json_db
 from tenacity import retry, stop_after_attempt, wait_fixed
 import time
+import random
 
-@retry(stop=stop_after_attempt(3), wait=wait_fixed(1))
+@retry(stop=stop_after_attempt(3), wait=wait_fixed(2))
 def perform_submission(report_content: str) -> str:
     """Simulates a network submission to a regulatory body."""
+    # Simulate API failure 50% of the time to demonstrate robustness
+    if random.random() < 0.5:
+        log_audit_event("Submission Sim", "Attempting Submission", "API Unavailable. Retrying...", "WARNING")
+        raise ConnectionError("Simulated API Target is currently unavailable.")
+        
     log_audit_event("Submission Simulation", "Submitting report via network", "Success: 200 OK")
     
     db = read_json_db()

@@ -49,6 +49,18 @@ async def upload_dataset(background_tasks: BackgroundTasks, file: UploadFile = F
     
     return {"status": "Success", "message": f"{file.filename} uploaded and compliance check triggered."}
 
+@app.post("/submit-report")
+async def submit_report():
+    from app.services.submission_service import perform_submission
+    from app.utils.db_utils import read_json_db
+    db = read_json_db()
+    report = db.get("report", {})
+    if not report or report.get("status") == "Submitted":
+        return {"status": "Error", "message": "No draft report ready for submission."}
+    
+    result = perform_submission(report.get("content", ""))
+    return {"status": "Success", "message": result}
+
 @app.get("/regulatory-calendar")
 def get_calendar():
     from app.utils.db_utils import read_json_db

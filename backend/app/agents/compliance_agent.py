@@ -33,12 +33,9 @@ def run_agent_workflow(source_text: str):
         # Step 5: Report Generation
         report = generate_compliance_report(validation_results, monitor_result)
         
-        # Step 6: Submission Simulation
-        submission_result = perform_submission(report)
-        
-        log_audit_event("Agent Orchestrator", "submission complete", "Workflow Completed Successfully")
-        return {"status": "success", "message": "Workflow Completed."}
-        
+        # We no longer auto-submit. The system now waits for Human-in-the-loop approval.
+        log_audit_event("Agent Orchestrator", "Report generated", "Workflow Completed. Waiting for human approval.")
+        return {"status": "success", "message": "Workflow Completed. Report Ready for Review.", "report": report}        
     except Exception as e:
         log_audit_event("Agent Orchestrator", "workflow step", f"Workflow failed: {str(e)}", "ERROR")
         return {"status": "error", "message": str(e)}

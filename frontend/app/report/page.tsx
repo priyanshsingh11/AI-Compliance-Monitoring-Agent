@@ -53,6 +53,27 @@ export default function ReportPage() {
                         </pre>
                     )}
                 </div>
+                {report && report.status === "Ready for Review" && (
+                    <div className="border-t border-gray-200 bg-gray-50 p-4 flex justify-end gap-4">
+                        <button onClick={loadData} className="px-5 py-2 text-sm font-semibold text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 transition-all">
+                            Reject & Reload
+                        </button>
+                        <button
+                            onClick={async () => {
+                                try {
+                                    await fetch('http://localhost:8000/submit-report', { method: 'POST' });
+                                    loadData();
+                                } catch (e) {
+                                    console.error(e);
+                                    alert("Submission failed during mock API attempt.");
+                                }
+                            }}
+                            className="px-5 py-2 text-sm font-semibold text-white bg-blue-600 rounded-lg shadow-sm hover:bg-blue-700 transition-all flex items-center">
+                            <Send className="w-4 h-4 mr-2" />
+                            Approve & Submit
+                        </button>
+                    </div>
+                )}
             </div>
 
             <button onClick={loadData} className="mt-4 text-sm text-blue-600 hover:text-blue-800 font-semibold underline decoration-transparent hover:decoration-blue-600 transition-all underline-offset-4">Refresh Report</button>

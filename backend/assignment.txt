@@ -1,0 +1,61 @@
+AI Compliance Monitoring Agent – Candidate Assignment
+This assignment evaluates your ability to design and prototype an AI-driven automation solution for regulatory compliance monitoring. The goal is to demonstrate your architectural thinking, problem-solving ability, and practical implementation skills using a single intelligent agent that automates the compliance reporting workflow.
+1. Objective
+Design and prototype a Single AI Compliance Agent that automates the lifecycle of regulatory compliance monitoring for a regulated organization (financial services or healthcare). The agent should monitor regulations, collect operational data, validate compliance metrics, generate regulatory reports, and maintain an audit trail.
+2. Scope of the AI Agent
+The single agent should orchestrate the following workflow stages:
+Regulatory Monitoring – Detect regulatory updates from web pages, RSS feeds, emails, or PDFs.
+Data Collection – Retrieve required operational data from internal systems or mock datasets.
+Validation – Apply rules to detect missing values, anomalies, or threshold violations.
+Report Generation – Generate regulatory reports based on predefined templates.
+Submission & Audit Trail – Simulate report submission and maintain an audit record.
+3. Functional Expectations
+Your prototype should demonstrate the following capabilities:
+Extract regulatory obligations and create a Regulatory Calendar.
+Collect data from mock internal systems (JSON, CSV, or Google Sheets).
+Validate data against compliance rules.
+Generate a regulatory report for the reporting period.
+Record an audit trail including timestamps, inputs, outputs, and approvals.
+4. Architecture & Design
+Provide a short architecture design describing how the agent works. The design should include:
+Agent goal and success criteria
+Decision logic or workflow orchestration
+Tools or APIs used (LLMs, workflow tools, data stores, etc.)
+Failure handling (missing data, API failure, validation errors)
+Human-in-the-loop approval points
+5. Diagrams
+Include at least one process diagram showing the end-to-end flow:
+Regulatory Source → AI Agent → Regulatory Calendar → Data Collection → Validation → Report Generation → Submission → Audit Log.
+6. Governance & Risk Considerations
+Briefly explain how your solution addresses governance and compliance requirements.
+Auditability (logs of inputs, outputs, and decisions)
+Data privacy and security
+Handling incorrect regulatory interpretation
+Fallback or escalation to human reviewers
+7. Prototype Demonstration
+Prepare a minimal working prototype that demonstrates the workflow using dummy data. The demo should show:
+Example regulatory calendar entries
+Data validation results
+A generated regulatory report
+An audit log for the workflow execution
+8. Test Scenarios
+Demonstrate the agent using 3–5 scenarios such as:
+Normal reporting cycle
+Missing internal data fields
+New regulation introduced during the reporting cycle
+Validation rule failure
+Source system or API unavailability
+9. Deliverables
+Short design document (2–4 pages or slides)
+Architecture diagram and workflow explanation
+Working prototype or demonstration
+Sample outputs from the system
+10. Time Allocation
+Preparation time:
+2-3 days
+
+Interview session 
+• 30 minutes – Prototype demo, architecture walkthrough, Technical deep dive and discussion
+
+
+Disclaimer: This assignment is for interview purposes only. Neither party owns any IP rights, and no IP claims are made by either party.

@@ -25,7 +25,7 @@ export const RunWorkflowButton = () => {
         <button
             onClick={handleRun}
             disabled={loading}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-6 rounded-lg transition-all flex items-center shadow-sm disabled:opacity-70">
+            className="bg-[#344e41] hover:bg-emerald-800 text-emerald-50 text-sm font-semibold py-3 px-6 rounded-xl transition-all flex justify-center items-center shadow-md border border-emerald-900/50 hover:border-emerald-700 w-full max-w-[200px] disabled:opacity-50">
             {loading ? (
                 <>
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />

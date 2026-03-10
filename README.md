@@ -18,20 +18,24 @@ We have beautifully designed Next.js dashboard views to visualize the entire com
 ![Main Dashboard Dashboard Overview](docs/images/Screenshot%202026-03-10%20181931.png)
 *A high-level view showing Active Violations, Rules Monitored, and Report Status.*
 
-### Active Connected Data Sources
-![Data Sources](docs/images/Screenshot%202026-03-10%20181948.png)
-*Monitoring internal databases and transactional APIs in real-time.*
+### Dashboard Overview With Active Violations
+![Main Dashboard Dashboard Overview](docs/images/Screenshot%202026-03-10%20182318.png)
+*Active Violations are displayed in the dashboard.*
 
 ### Regulatory Calendar
-![Regulatory Calendar](docs/images/Screenshot%202026-03-10%20182005.png)
-*Extracts obligations and deadlines requiring action.*
+![Regulatory Calendar](docs/images/Screenshot%202026-03-10%20182325.png)
+*Active Violations are displayed in the dashboard.*
 
 ### Validation Results
-![Validation Results](docs/images/Screenshot%202026-03-10%20182021.png)
-*Rule engine cross-checks and threshold failures recorded by Pandas.*
+![Validation Results](docs/images/Screenshot%202026-03-10%20182332.png)
+*Monitoring internal databases and transactional APIs in real-time.*
 
-### Compliance Report Generation
-![Compliance Report](docs/images/Screenshot%202026-03-10%20182038.png)
+### Compliance Report
+![Compliance Report](docs/images/Screenshot%202026-03-10%20182344.png)
+*Extracts obligations and deadlines requiring action.*
+
+### System Audit Log
+![System Audit Log](docs/images/Screenshot%202026-03-10%20182351.png)
 *Finalized LangChain generated markdown output ready for submission.*
 
 ---

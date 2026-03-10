@@ -10,8 +10,33 @@ The system follows a decoupled, agent-driven architecture:
 - **Data Layer (JSON/Pandas)**: A lightweight local JSON-based storage for prototypes, coupled with Pandas for fast and efficient internal data processing and validation.
 - **Frontend Dashboard (Next.js/React)**: A modern, responsive dashboard that interacts with the FastAPI backend, giving users a complete visual overview of triggered compliance events, violations, required reports, and audit logs.
 
-## 3. Architecture Diagram
+## 3. System Screenshots
 
+We have beautifully designed Next.js dashboard views to visualize the entire compliance lifecycle:
+
+### Main Dashboard Overview
+![Main Dashboard Dashboard Overview](C:\Users\Priyansh Singh\Desktop\AI Compliance Monitoring Agent\docs\images\Screenshot 2026-03-10 181931.png)
+*A high-level view showing Active Violations, Rules Monitored, and Report Status.*
+
+### Active Connected Data Sources
+![Data Sources](C:\Users\Priyansh Singh\Desktop\AI Compliance Monitoring Agent\docs\images\Screenshot 2026-03-10 181948.png)
+*Monitoring internal databases and transactional APIs in real-time.*
+
+### Regulatory Calendar
+![Regulatory Calendar](C:\Users\Priyansh Singh\Desktop\AI Compliance Monitoring Agent\docs\images\Screenshot 2026-03-10 182005.png)
+*Extracts obligations and deadlines requiring action.*
+
+### Validation Results
+![Validation Results](C:\Users\Priyansh Singh\Desktop\AI Compliance Monitoring Agent\docs\images\Screenshot 2026-03-10 182021.png)
+*Rule engine cross-checks and threshold failures recorded by Pandas.*
+
+### Compliance Report Generation
+![Compliance Report](C:\Users\Priyansh Singh\Desktop\AI Compliance Monitoring Agent\docs\images\Screenshot 2026-03-10 182038.png)
+*Finalized LangChain generated markdown output ready for submission.*
+
+---
+
+## 4. Architecture Diagram
 ```mermaid
 graph TD
     %% Source to Agent

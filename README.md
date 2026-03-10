@@ -15,23 +15,23 @@ The system follows a decoupled, agent-driven architecture:
 We have beautifully designed Next.js dashboard views to visualize the entire compliance lifecycle:
 
 ### Main Dashboard Overview
-![Main Dashboard Dashboard Overview](C:\Users\Priyansh Singh\Desktop\AI Compliance Monitoring Agent\docs\images\Screenshot 2026-03-10 181931.png)
+![Main Dashboard Dashboard Overview](docs/images/Screenshot%202026-03-10%20181931.png)
 *A high-level view showing Active Violations, Rules Monitored, and Report Status.*
 
 ### Active Connected Data Sources
-![Data Sources](C:\Users\Priyansh Singh\Desktop\AI Compliance Monitoring Agent\docs\images\Screenshot 2026-03-10 181948.png)
+![Data Sources](docs/images/Screenshot%202026-03-10%20181948.png)
 *Monitoring internal databases and transactional APIs in real-time.*
 
 ### Regulatory Calendar
-![Regulatory Calendar](C:\Users\Priyansh Singh\Desktop\AI Compliance Monitoring Agent\docs\images\Screenshot 2026-03-10 182005.png)
+![Regulatory Calendar](docs/images/Screenshot%202026-03-10%20182005.png)
 *Extracts obligations and deadlines requiring action.*
 
 ### Validation Results
-![Validation Results](C:\Users\Priyansh Singh\Desktop\AI Compliance Monitoring Agent\docs\images\Screenshot 2026-03-10 182021.png)
+![Validation Results](docs/images/Screenshot%202026-03-10%20182021.png)
 *Rule engine cross-checks and threshold failures recorded by Pandas.*
 
 ### Compliance Report Generation
-![Compliance Report](C:\Users\Priyansh Singh\Desktop\AI Compliance Monitoring Agent\docs\images\Screenshot 2026-03-10 182038.png)
+![Compliance Report](docs/images/Screenshot%202026-03-10%20182038.png)
 *Finalized LangChain generated markdown output ready for submission.*
 
 ---
